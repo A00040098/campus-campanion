@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { events } from "@/data/mock";
 import { EventCard } from "@/components/EventCard";
+import { Sparkles, Filter } from "lucide-react";
 
 export default function EventsPage() {
   const [filter, setFilter] = useState("All");
@@ -44,12 +45,14 @@ export default function EventsPage() {
       </header>
 
       {/* Recommendations Section (KNN via API Route) */}
-      <section className="mb-12">
-        <div className="flex items-center space-x-2 mb-6">
-          <span className="text-2xl" aria-hidden="true">✨</span>
-          <h2 className="text-2xl font-bold" style={{ color: "var(--text)" }}>Recommended for You</h2>
+      <section className="mb-14">
+        <div className="flex items-center space-x-3 mb-6">
+          <div className="p-2 bg-emerald-100 rounded-lg">
+            <Sparkles size={28} className="text-emerald-600 animate-pulse" />
+          </div>
+          <h2 className="text-3xl font-extrabold tracking-tight" style={{ color: "var(--text)" }}>Recommended for You</h2>
         </div>
-        <p className="mb-6 text-sm" style={{ color: "var(--text-muted)" }}>
+        <p className="mb-8 text-lg" style={{ color: "var(--text-muted)" }}>
           Based on your past interactions, our smart engine suggests these events:
         </p>
         
