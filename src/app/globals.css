@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #4F46E5;
+  --primary-hover: #4338ca;
+  --secondary: #10B981;
+  --background: #F9FAFB;
+  --surface: #FFFFFF;
+  --text: #1F2937;
+  --text-muted: #6B7280;
+  --border: #E5E7EB;
+}
+
+body.high-contrast {
+  --primary: #0000FF;
+  --primary-hover: #0000CC;
+  --secondary: #006600;
+  --background: #FFFFFF;
+  --surface: #FFFFFF;
+  --text: #000000;
+  --text-muted: #333333;
+  --border: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.large-text {
+  font-size: 1.125rem;
+}
+
+body.large-text h1 {
+  font-size: 2.5rem;
+}
+
+body.large-text h2 {
+  font-size: 2rem;
+}
+
+body.large-text h3 {
+  font-size: 1.5rem;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+body.high-contrast .glass {
+  background: var(--surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 2px solid var(--border);
+}
+
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Sidebar Links */
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 80%;
+}
